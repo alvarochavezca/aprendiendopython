@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CinePlus | Promociones</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-dot"></span><span>CinePlus</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="cartelera.html">Cartelera</a>
+      <a href="proximos.html">Próximos</a>
+      <a class="active" href="promociones.html">Promos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn ghost" href="historial.html">Mis tickets</a>
+      <button class="btn icon" id="btnMenu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Promociones</h1>
+      <p>Combos, descuentos y beneficios. Diseño claro con tarjetas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid three">
+        <article class="card promo">
+          <div class="promo-top" style="background-image:url('../assets/img/banner-2.svg')"></div>
+          <div class="pad">
+            <h3>2x1 los Miércoles</h3>
+            <p class="muted">Compra una entrada y llévate otra gratis en funciones seleccionadas.</p>
+            <div class="actions"><a class="btn" href="cartelera.html">Reservar</a></div>
+          </div>
+        </article>
+        <article class="card promo">
+          <div class="promo-top" style="background-image:url('../assets/img/banner-3.svg')"></div>
+          <div class="pad">
+            <h3>Combo Familiar</h3>
+            <p class="muted">Cancha + gaseosa + snacks para 3 personas (precio especial).</p>
+            <div class="actions"><a class="btn ghost" href="contacto.html">Consultar</a></div>
+          </div>
+        </article>
+        <article class="card promo">
+          <div class="promo-top" style="background-image:url('../assets/img/banner-5.svg')"></div>
+          <div class="pad">
+            <h3>Descuento Estudiantes</h3>
+            <p class="muted">Presenta tu carnet y obtén descuento en tu entrada.</p>
+            <div class="actions"><a class="btn" href="faq.html">Ver condiciones</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="card pad" style="margin-top:16px">
+        <h3>Banner destacado</h3>
+        <p class="muted">Puedes usar esta sección como anuncio grande (hero interno).</p>
+        <div class="mini-banner" style="background-image:url('../assets/img/banner-1.svg')"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>
+      <div class="brand small"><span class="brand-dot"></span><span>CinePlus</span></div>
+      <p class="muted">Promos con cards limpias y CTA.</p>
+    </div>
+    <div class="foot-links">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script> CinePlusUI.initMenu(); </script>
+</body>
+</html>

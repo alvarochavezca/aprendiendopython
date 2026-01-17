@@ -17,6 +17,8 @@ b = 10
 c = 20
 comparacion = a + b < c
 
+print(comparacion)
+print(distinto_de)
 
 #comparar usuarios
 contraseña_almacenada = "DaltoMaestro"

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CinePlus | Contacto</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-dot"></span><span>CinePlus</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="cartelera.html">Cartelera</a>
+      <a href="proximos.html">Próximos</a>
+      <a href="promociones.html">Promos</a>
+      <a class="active" href="contacto.html">Contacto</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn ghost" href="historial.html">Mis tickets</a>
+      <button class="btn icon" id="btnMenu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contacto</h1>
+      <p>Formulario con validación y mensajes en pantalla (sin backend).</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid two">
+        <div class="card pad">
+          <h3>Escríbenos</h3>
+          <form id="contactForm" class="form">
+            <label>
+              <span>Nombre</span>
+              <input type="text" id="name" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              <span>Correo</span>
+              <input type="email" id="email" placeholder="tucorreo@email.com" required />
+            </label>
+            <label>
+              <span>Asunto</span>
+              <input type="text" id="subject" placeholder="Consulta, sugerencia..." required />
+            </label>
+            <label>
+              <span>Mensaje</span>
+              <textarea id="message" rows="5" placeholder="Escribe tu mensaje" required></textarea>
+            </label>
+            <button class="btn" type="submit">Enviar mensaje</button>
+            <p class="muted" id="formStatus" style="margin:10px 0 0"></p>
+          </form>
+        </div>
+
+        <div class="card pad">
+          <h3>Info rápida</h3>
+          <div class="info">
+            <div class="info-row"><span class="badge">📍</span> Av. Demo 123, Lima</div>
+            <div class="info-row"><span class="badge">🕒</span> Lunes a Domingo 10am - 11pm</div>
+            <div class="info-row"><span class="badge">☎</span> +51 900 000 000</div>
+          </div>
+          <div class="mini-banner" style="margin-top:14px;background-image:url('../assets/img/banner-3.svg')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>
+      <div class="brand small"><span class="brand-dot"></span><span>CinePlus</span></div>
+      <p class="muted">Formulario con validación JS.</p>
+    </div>
+    <div class="foot-links">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script>
+  CinePlusUI.initMenu();
+  CinePlusUI.initContact();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="500" viewBox="0 0 1400 500">
+<defs>
+<linearGradient id="g5" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#2563eb"/>
+<stop offset="1" stop-color="#22c55e"/>
+</linearGradient>
+</defs>
+<rect width="1400" height="500" rx="28" fill="url(#g5)"/>
+<circle cx="1150" cy="140" r="220" fill="rgba(255,255,255,.18)"/>
+<circle cx="980" cy="360" r="150" fill="rgba(255,255,255,.12)"/>
+<text x="70" y="165" font-size="54" font-family="Arial" fill="#fff" font-weight="700">CinePlus</text>
+<text x="70" y="230" font-size="28" font-family="Arial" fill="rgba(255,255,255,.92)">Banners + diseño claro + animaciones</text>
+<text x="70" y="290" font-size="22" font-family="Arial" fill="rgba(255,255,255,.85)">Proyecto HTML + CSS + JS (sin frameworks)</text>
+<text x="70" y="350" font-size="18" font-family="Arial" fill="rgba(255,255,255,.82)">Banner #5</text>
+</svg>

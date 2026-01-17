@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CinePlus | Inicio</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span class="brand-text">CinePlus</span>
+        <span class="badge">Cartelera</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="active">Inicio</a>
+        <a href="pages/cartelera.html">Cartelera</a>
+        <a href="pages/proximos.html">Próximos estrenos</a>
+        <a href="pages/promociones.html">Promociones</a>
+        <a href="pages/tickets.html">Mis tickets</a>
+        <a href="pages/contacto.html">Contacto</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" title="Cambiar tema">
+          <span aria-hidden="true">🌙</span>
+        </button>
+        <button class="icon-btn" id="menuBtn" title="Menú">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <a class="btn" href="pages/cartelera.html">Ver cartelera</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="pill">🎬 Cine moderno • Compra fácil • Diseño claro</div>
+          <h1 class="hero-title">Tu <span class="grad">cartelera de cine</span> con estilo</h1>
+          <p class="hero-sub">
+            Explora películas, mira horarios, selecciona asientos y guarda tus tickets.
+            Proyecto 100% HTML + CSS + JavaScript (ideal para tu curso).
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="pages/cartelera.html">Ir a Cartelera</a>
+            <a class="btn btn-outline" href="#destacadas">Ver destacadas</a>
+          </div>
+
+          <div class="mini-stats">
+            <div class="mini-stat">
+              <div class="mini-top">⭐ Promedio</div>
+              <div class="mini-val" id="avgRating">4.6</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-top">🍿 Películas</div>
+              <div class="mini-val" id="totalMovies">6</div>
+            </div>
+            <div class="mini-stat">
+              <div class="mini-top">🎟️ Tickets</div>
+              <div class="mini-val" id="totalTickets">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="carousel" id="homeCarousel">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-item">
+                <img src="assets/img/banner-1.svg" alt="Banner 1" />
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/banner-2.svg" alt="Banner 2" />
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/banner-3.svg" alt="Banner 3" />
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/banner-4.svg" alt="Banner 4" />
+              </div>
+            </div>
+
+            <button class="carousel-btn left" id="prevSlide" aria-label="Anterior">‹</button>
+            <button class="carousel-btn right" id="nextSlide" aria-label="Siguiente">›</button>
+
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+
+          <div class="hero-card-footer">
+            <div>
+              <div class="muted">Tip rápido</div>
+              <div class="strong">Usa la Cartelera para filtrar por género</div>
+            </div>
+            <a class="link" href="pages/faq.html">Ver ayuda →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="destacadas" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Películas destacadas</h2>
+            <p class="muted">Lo más visto esta semana (demo).</p>
+          </div>
+          <a class="btn btn-outline" href="pages/cartelera.html">Ver todas</a>
+        </div>
+
+        <div class="grid" id="featuredGrid"></div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="container">
+        <div class="split">
+          <div class="card">
+            <h3>Compra tus entradas</h3>
+            <p class="muted">Elige película → función → asientos → listo ✅</p>
+            <div class="steps">
+              <div class="step">1. Selecciona película</div>
+              <div class="step">2. Elige horario</div>
+              <div class="step">3. Reserva tus asientos</div>
+            </div>
+            <a class="btn" href="pages/cartelera.html">Empezar</a>
+          </div>
+          <div class="card">
+            <h3>Diseño claro y moderno</h3>
+            <p class="muted">
+              Proyecto con navbar, banners, modales, animaciones suaves y páginas conectadas.
+              Perfecto para presentar como trabajo final.
+            </p>
+            <ul class="check">
+              <li>Responsive (móvil y PC)</li>
+              <li>Transiciones elegantes</li>
+              <li>LocalStorage para tickets</li>
+            </ul>
+            <a class="link" href="pages/sobre.html">Conocer el proyecto →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="banner">
+          <div>
+            <h3>Promo estudiantes</h3>
+            <p class="muted">50% en combos de lunes a miércoles (demo)</p>
+          </div>
+          <a class="btn btn-outline" href="pages/promociones.html">Ver promos</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand mini">
+          <span class="brand-dot"></span>
+          <span class="brand-text">CinePlus</span>
+        </div>
+        <p class="muted">Proyecto educativo — HTML/CSS/JS puro.</p>
+      </div>
+      <div>
+        <div class="footer-title">Páginas</div>
+        <a href="pages/cartelera.html">Cartelera</a>
+        <a href="pages/estrenos.html">Próximos estrenos</a>
+        <a href="pages/tickets.html">Mis tickets</a>
+      </div>
+      <div>
+        <div class="footer-title">Soporte</div>
+        <a href="pages/faq.html">FAQ</a>
+        <a href="pages/contacto.html">Contacto</a>
+        <a href="pages/sobre.html">Sobre</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© <span id="year"></span> CinePlus</div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script defer src="assets/js/cine-ui.js"></script>
+  <script defer src="assets/js/app.js"></script>
+</body>
+</html>

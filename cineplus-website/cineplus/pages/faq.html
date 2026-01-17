@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CinePlus | FAQ</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-dot"></span><span>CinePlus</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="cartelera.html">Cartelera</a>
+      <a href="proximos.html">Próximos</a>
+      <a href="promociones.html">Promos</a>
+      <a href="contacto.html">Contacto</a>
+      <a class="active" href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn ghost" href="historial.html">Mis tickets</a>
+      <button class="btn icon" id="btnMenu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Preguntas frecuentes</h1>
+      <p>Acordeón con animación simple y respuestas concisas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card pad">
+        <div class="accordion" id="faqAcc">
+          <div class="acc-item">
+            <button class="acc-btn">¿Puedo reservar sin registrarme? <span>+</span></button>
+            <div class="acc-panel"><p>Sí. Este proyecto es una demo, reserva directo con tu nombre (localStorage).</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn">¿Cómo funcionan los asientos? <span>+</span></button>
+            <div class="acc-panel"><p>Seleccionas butacas disponibles y el total se calcula automáticamente.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn">¿Dónde veo mis tickets? <span>+</span></button>
+            <div class="acc-panel"><p>En “Mis tickets”. Puedes borrar el historial cuando quieras.</p></div>
+          </div>
+          <div class="acc-item">
+            <button class="acc-btn">¿Puedo usar Live Server? <span>+</span></button>
+            <div class="acc-panel"><p>Sí, recomendado para abrir el index.html y navegar.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card pad" style="margin-top:14px">
+        <h3>Tip para tu curso</h3>
+        <p class="muted">Explica tu estructura: <b>assets/</b> para CSS/JS/IMG y <b>pages/</b> para HTML extras.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>
+      <div class="brand small"><span class="brand-dot"></span><span>CinePlus</span></div>
+      <p class="muted">FAQ con acordeón JS.</p>
+    </div>
+    <div class="foot-links">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script>
+  CinePlusUI.initMenu();
+  CinePlusUI.initFAQ();
+</script>
+</body>
+</html>

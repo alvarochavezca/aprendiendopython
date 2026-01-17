@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CinePlus | Asientos</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-dot"></span><span>CinePlus</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html">Inicio</a>
+      <a href="cartelera.html">Cartelera</a>
+      <a href="proximos.html">Próximos</a>
+      <a href="promociones.html">Promos</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn ghost" href="historial.html">Mis tickets</a>
+      <button class="btn icon" id="btnMenu" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Reserva tus asientos</h1>
+      <p>Selecciona butacas, ve el total y confirma tu ticket (guardado en localStorage).</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" id="seatApp"></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-inner">
+    <div>
+      <div class="brand small"><span class="brand-dot"></span><span>CinePlus</span></div>
+      <p class="muted">Asientos interactivos + confirmación de compra.</p>
+    </div>
+    <div class="foot-links">
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="terminos.html">Términos</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/app.js"></script>
+<script>
+  CinePlusUI.initMenu();
+  CinePlusUI.initSeats();
+</script>
+</body>
+</html>

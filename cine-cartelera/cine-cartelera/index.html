@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CineLux • Cartelera</title>
+  <meta name="description" content="Cartelera de cine moderna: películas, horarios y compra de entradas (demo)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <div class="brand" aria-label="CineLux">
+        <span class="brand__mark" aria-hidden="true">🎬</span>
+        <div class="brand__text">
+          <strong>CineLux</strong>
+          <span>Cartelera</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navegación">
+        <a href="#cartelera">Cartelera</a>
+        <a href="#estrenos">Estrenos</a>
+        <a href="#promos">Promos</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <button id="btnTheme" class="btn btn--ghost" type="button" aria-label="Cambiar tema">
+          <span class="btn__icon" aria-hidden="true">🌗</span>
+          <span class="hide-sm">Tema</span>
+        </button>
+        <button id="btnTickets" class="btn btn--primary" type="button">
+          <span class="btn__icon" aria-hidden="true">🎟️</span>
+          <span>Mis tickets</span>
+          <span id="ticketCount" class="pill" aria-label="Cantidad de tickets">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-label="Cabecera">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1>Elige tu película, tu horario y tu butaca.</h1>
+          <p>
+            Una cartelera moderna hecha con <strong>HTML + CSS + JavaScript</strong>.
+            Incluye filtros, búsqueda, modal de detalles y un mini selector de asientos.
+          </p>
+
+          <div class="hero__search" role="search">
+            <label class="sr-only" for="searchInput">Buscar película</label>
+            <input id="searchInput" type="search" placeholder="Buscar por título…" autocomplete="off" />
+            <button id="btnClear" class="btn btn--ghost" type="button" aria-label="Limpiar búsqueda">✕</button>
+          </div>
+
+          <div class="chips" aria-label="Filtros por género">
+            <button class="chip is-active" data-genre="all" type="button">Todo</button>
+            <button class="chip" data-genre="Acción" type="button">Acción</button>
+            <button class="chip" data-genre="Animación" type="button">Animación</button>
+            <button class="chip" data-genre="Drama" type="button">Drama</button>
+            <button class="chip" data-genre="Terror" type="button">Terror</button>
+            <button class="chip" data-genre="Sci‑Fi" type="button">Sci‑Fi</button>
+          </div>
+
+          <div class="hero__meta">
+            <div class="stat">
+              <span class="stat__label">Ciudad</span>
+              <strong class="stat__value">Lima</strong>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Formato</span>
+              <strong class="stat__value">2D / 3D / IMAX</strong>
+            </div>
+            <div class="stat">
+              <span class="stat__label">Hoy</span>
+              <strong class="stat__value" id="todayLabel">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__card" aria-label="Panel de destacados">
+          <div class="heroCard">
+            <div class="heroCard__top">
+              <div>
+                <span class="tag">Destacada</span>
+                <h2 id="featuredTitle">—</h2>
+                <p id="featuredDesc">—</p>
+              </div>
+              <div class="rating" aria-label="Calificación">
+                <span aria-hidden="true">⭐</span>
+                <strong id="featuredRating">—</strong>
+              </div>
+            </div>
+
+            <div class="heroCard__bottom">
+              <div class="showtimes" id="featuredTimes" aria-label="Horarios"></div>
+              <button id="btnFeatured" class="btn btn--primary" type="button">
+                Ver detalles
+              </button>
+            </div>
+
+            <div class="heroCard__shine" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cartelera">
+      <div class="container">
+        <div class="section__head">
+          <h2>Cartelera</h2>
+          <div class="section__controls">
+            <label class="select" for="sortSelect">
+              <span class="sr-only">Ordenar</span>
+              <select id="sortSelect">
+                <option value="pop">Ordenar: Popularidad</option>
+                <option value="rating">Ordenar: Rating</option>
+                <option value="title">Ordenar: Título (A‑Z)</option>
+                <option value="time">Ordenar: Duración</option>
+              </select>
+            </label>
+            <label class="toggle" for="onlyToday">
+              <input id="onlyToday" type="checkbox" />
+              <span>Solo hoy</span>
+            </label>
+          </div>
+        </div>
+
+        <div id="grid" class="grid" aria-live="polite" aria-busy="false"></div>
+        <div id="empty" class="empty" hidden>
+          <div class="empty__icon" aria-hidden="true">🍿</div>
+          <h3>No encontramos coincidencias</h3>
+          <p>Prueba con otro género o cambia la búsqueda.</p>
+          <button id="btnReset" class="btn btn--primary" type="button">Reiniciar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="estrenos">
+      <div class="container">
+        <div class="section__head">
+          <h2>Estrenos</h2>
+          <p class="muted">Próximas semanas (demo).</p>
+        </div>
+
+        <div class="strip" id="premieres"></div>
+      </div>
+    </section>
+
+    <section class="section" id="promos">
+      <div class="container">
+        <div class="promo">
+          <div class="promo__copy">
+            <h2>Miércoles 2x1</h2>
+            <p>Compra 2 entradas al precio de 1 en funciones seleccionadas. Aplica términos (demo).</p>
+            <button class="btn btn--primary" type="button" id="btnPromo">Ver condiciones</button>
+          </div>
+          <div class="promo__art" aria-hidden="true">
+            <div class="ticketArt">🎟️</div>
+            <div class="ticketArt ticketArt--2">🎟️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>Hecho para curso de Páginas Web • <span id="year"></span></p>
+        <p class="muted">Sin frameworks. Solo HTML, CSS y JS.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Movie details modal -->
+  <dialog id="movieModal" class="modal">
+    <form method="dialog" class="modal__backdrop"></form>
+    <div class="modal__panel" role="document" aria-label="Detalles de la película">
+      <div class="modal__head">
+        <div class="modal__title">
+          <h3 id="modalTitle">—</h3>
+          <p id="modalMeta" class="muted">—</p>
+        </div>
+        <button class="btn btn--ghost" type="button" id="btnClose" aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="modal__content">
+        <div class="modal__poster" id="modalPoster" aria-hidden="true"></div>
+
+        <div class="modal__info">
+          <div class="row">
+            <div class="rating big">
+              <span aria-hidden="true">⭐</span>
+              <strong id="modalRating">—</strong>
+            </div>
+            <div class="badges" id="modalBadges"></div>
+          </div>
+
+          <p id="modalDesc">—</p>
+
+          <div class="infoGrid">
+            <div class="infoItem">
+              <span class="muted">Director</span>
+              <strong id="modalDirector">—</strong>
+            </div>
+            <div class="infoItem">
+              <span class="muted">Reparto</span>
+              <strong id="modalCast">—</strong>
+            </div>
+            <div class="infoItem">
+              <span class="muted">Idioma</span>
+              <strong id="modalLang">—</strong>
+            </div>
+            <div class="infoItem">
+              <span class="muted">Formato</span>
+              <strong id="modalFormat">—</strong>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="row row--space">
+            <strong>Selecciona horario</strong>
+            <span class="muted" id="priceLabel">Desde S/ —</span>
+          </div>
+
+          <div class="showtimes showtimes--wrap" id="modalTimes" aria-label="Horarios"></div>
+
+          <div class="seatBox" id="seatBox" hidden>
+            <div class="row row--space">
+              <strong>Selecciona tus asientos</strong>
+              <span class="muted">Sala <span id="roomLabel">—</span></span>
+            </div>
+
+            <div class="screen" aria-hidden="true">PANTALLA</div>
+            <div id="seats" class="seats" aria-label="Mapa de asientos"></div>
+
+            <div class="row row--space">
+              <div class="legend">
+                <span class="dot"></span><span>Libre</span>
+                <span class="dot dot--sel"></span><span>Seleccionado</span>
+                <span class="dot dot--occ"></span><span>Ocupado</span>
+              </div>
+              <div class="totals">
+                <span class="muted">Total</span>
+                <strong id="totalPrice">S/ 0</strong>
+              </div>
+            </div>
+
+            <div class="row row--space">
+              <button id="btnCancelSeats" class="btn btn--ghost" type="button">Cambiar horario</button>
+              <button id="btnBuy" class="btn btn--primary" type="button">Comprar</button>
+            </div>
+          </div>
+
+          <p class="hint muted">Tip: las compras se guardan en tu navegador (localStorage).</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Tickets modal -->
+  <dialog id="ticketsModal" class="modal">
+    <form method="dialog" class="modal__backdrop"></form>
+    <div class="modal__panel" role="document" aria-label="Mis tickets">
+      <div class="modal__head">
+        <div class="modal__title">
+          <h3>Mis tickets</h3>
+          <p class="muted">Entradas guardadas en este navegador.</p>
+        </div>
+        <button class="btn btn--ghost" type="button" id="btnCloseTickets" aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="modal__content">
+        <div id="ticketsList" class="tickets"></div>
+        <div class="row row--space" style="margin-top: 14px;">
+          <button id="btnClearTickets" class="btn btn--ghost" type="button">Eliminar todo</button>
+          <form method="dialog"><button class="btn btn--primary" type="submit">Listo</button></form>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <span id="toastText">—</span>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
