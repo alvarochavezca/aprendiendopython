@@ -2,7 +2,7 @@
 #import modulo_saludar as m_saludar
 
 #desde ese modulo, importamos dos funciones y les cambiamos el nombre
-from modulo_saludar import saludar as saludar_normal,saludar_raro as saludar_como_coscu
+from modulo_saludar import saludar as saludar_normal, saludar_raro as saludar_como_coscu
 
 #creamos las variables con los saludos
 saludo = saludar_normal("Lucas")
